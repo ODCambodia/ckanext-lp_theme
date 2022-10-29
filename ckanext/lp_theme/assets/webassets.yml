@@ -1,0 +1,14 @@
+# lp_theme-js:
+#   filter: rjsmin
+#   output: ckanext-lp_theme/%(version)s-lp_theme.js
+#   contents:
+#     - js/lp_theme.js
+#   extra:
+#     preload:
+#       - base/main
+
+# lp_theme-css:
+#   filter: cssrewrite
+#   output: ckanext-lp_theme/%(version)s-lp_theme.css
+#   contents:
+#     - css/lp_theme.css
