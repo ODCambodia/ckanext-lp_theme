@@ -18,38 +18,54 @@
         </div>
     </div>
     <div role="main" class="module-feeds">
-        <div class="container">
-            {% block storyCards %}
-                {% snippet 'home/snippets/story-cards.html' %}
-            {% endblock %}
-        </div>
-        <div class="container">
-            {% block topics %}
-                {% snippet 'home/snippets/topics.html' %}
-            {% endblock %}
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2 class="text-center mt-3">{{ _('New Resources') }}</h2>
-                    {% block newResources %}
-                        {# {% snippet 'home/snippets/new-resources.html' %} #}
-                    {% endblock %}
-                </div>
-                <div class="col-md-6">
-                    <h2 class="text-center mt-3">{{ _('Popular Resources') }}</h2>
-                    {% block popularResources %}
-                        {# {% snippet 'home/snippets/popular-resources.html' %} #}
-                    {% endblock %}
+        <section class="py-4">
+            <div class="container">
+                {% block storyCards %}
+                    {% snippet 'home/snippets/story-cards.html' %}
+                {% endblock %}
+            </div>
+        </section>
+        
+        <section class="py-4" style="background-color: #fff;">
+            <div class="container">
+                {% block topics %}
+                    {% snippet 'home/snippets/topics.html' %}
+                {% endblock %}
+            </div>
+        </section>
+        
+        <section class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="text-center mt-3">{{ _('New Resources') }}</h2>
+                        {% block newResources %}
+                            {# {% snippet 'home/snippets/new-resources.html' %} #}
+                        {% endblock %}
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="text-center mt-3">{{ _('Popular Resources') }}</h2>
+                        {% block popularResources %}
+                            {# {% snippet 'home/snippets/popular-resources.html' %} #}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <h2 class="text-center mt-3">{{ _('Cluster Members') }}</h2>
-            {% block organizations %}
-                {% snippet 'home/snippets/organization_list.html' %}
-            {% endblock %}
-        </div>
+        </section>
+
+        <section class="py-4" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="text-center mt-3">{{ _('Cluster Members') }}</h2>
+                {% block organizations_list %}
+                    {% set organizations = h.get_featured_organizations(-1) %}
+
+                    {% snippet "organization/snippets/organization_list.html", organizations=organizations %}
+                {% endblock %}
+            </div>
+        </section>
+        {# <div class="container" style="background-color: #fff;"> #}
+            
+        {# </div> #}
     </div>
     {% endblock %}
 </div>

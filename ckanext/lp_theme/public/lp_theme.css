@@ -101,3 +101,33 @@ body {
 .site-footer a {
   color: rgba(255, 255, 255, 0.6);
 }
+
+.lp-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.lp-media-grid > div {
+  display: grid;
+  /* background: black; */
+  padding: 1rem;
+  place-items: center;
+}
+
+.lp-media-grid > div::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+
+.lp-media-grid > div::before,
+.lp-media-grid > div > img {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.lp-media-grid > div > img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
