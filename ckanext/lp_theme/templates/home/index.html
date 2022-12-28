@@ -1,17 +1,8 @@
 {% ckan_extends %}
 
-{% block content %}
-<div class="homepage layout-{{ homepage_style }}">
-    <div id="content" class="container">
-        {{ self.flash() }}
-    </div>
-
-    {% block primary_content %}
+{% block primary_content %}
     <div role="main" class="hero">
         <div class="container">
-        {# {% block search %}
-            {% snippet 'home/snippets/search.html' %}
-        {% endblock %} #}
         {% block banner %}
             {% snippet 'home/snippets/banner-card.html' %}
         {% endblock %}
@@ -63,10 +54,5 @@
                 {% endblock %}
             </div>
         </section>
-        {# <div class="container" style="background-color: #fff;"> #}
-            
-        {# </div> #}
     </div>
-    {% endblock %}
-</div>
 {% endblock %}
