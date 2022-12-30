@@ -1,148 +1,60 @@
 {% ckan_extends %}
 
-{# {% set dataset_type = h.default_package_type() %} #}
+{% block header_wrapper %}
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+            </div>
+            <div class="social-links d-none d-md-flex align-items-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div>
+        </div>
+    </section>
 
-{# {% block header_wrapper %} {% block header_account %}
-  <div class="account-masthead">
-    <div class="container">
-      {% block header_account_container_content %} 
-        {% if c.userobj %}
-          <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
-            <ul class="list-unstyled">
-            {% block header_account_logged %} 
-              {% if c.userobj.sysadmin %}
-                <li>
-                  <a href="{{ h.url_for('admin.index') }}" title="{{ _('Sysadmin settings') }}">
-                    <i class="fa fa-gavel" aria-hidden="true"></i>
-                    <span class="text">{{ _('Admin') }}</span>
-                  </a>
-                </li>
-              {% endif %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1><a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                {# <a href="{{ h.url_for('home.index') }}"><img src="{{ g.site_logo }}" alt="" class="img-fluid"></a> #}
+            </div>
 
-              {% block header_account_profile %}
-                <li>
-                  <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
-                    {{ h.user_image((c.user if c and c.user else ''), size=22) }}
-                    <span class="username">{{ c.userobj.display_name }}</span>
-                  </a>
-                </li>
-              {% endblock %}
-
-              {% block header_dashboard %}
-                <li>
-                  <a href="{{ h.url_for('dashboard.datasets') }}" title="{{ _('View dashboard') }}">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    <span class="text">{{ _('Dashboard') }}</span>
-                  </a>
-                </li>
-              {% endblock %}
-
-              {% block header_account_settings_link %}
-                <li>
-                  <a href="{{ h.url_for('user.edit', id=c.userobj.name) }}" title="{{ _('Profile settings') }}">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                    <span class="text">{{ _('Profile settings') }}</span>
-                  </a>
-                </li>
-              {% endblock %}
-              
-              {% block header_account_log_out_link %}
-                <li>
-                  <a href="{{ h.url_for('user.logout') }}" title="{{ _('Log out') }}">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span class="text">{{ _('Log out') }}</span>
-                  </a>
-                </li>
-              {% endblock %} 
-            {% endblock %}
-            </ul>
-          </div>
-        {% else %}
-          <nav class="account not-authed" aria-label="{{ _('Account') }}">
-            <ul class="list-unstyled">
-              {% block header_account_notlogged %}
-                <li>{% link_for _('Log in'), named_route='user.login' %}</li>
-                {% if h.check_access('user_create') %}
-                  <li>{% link_for _('Register'), named_route='user.register', class_='sub' %}</li>
-                {% endif %} 
-              {% endblock %}
-            </ul>
-          </nav>
-        {% endif %} 
-      {% endblock %}
-    </div>
-  </div>
-{% endblock %} #}
-
-{# <header class="masthead">
-  <div class="container">
-    {% block header_debug %}
-      {% if g.debug and not g.debug_supress_header %}
-        <div class="debug">Blueprint : {{ g.blueprint }}<br />View : {{ g.view }}</div>
-      {% endif %}
-    {% endblock %} #}
-    
-    {# <nav class="navbar navbar-expand-lg navbar-light">
-      <hgroup class="{{ g.header_class }} navbar-left">
-        {% block header_logo %}
-          {% if g.site_logo %}
-            <a class="logo" href="{{ h.url_for('home.index') }}">
-              <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
-            </a>
-          {% else %}
-            <h1>
-              <a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a>
-            </h1>
-            {% if g.site_description %}
-              <h2>{{ g.site_description }}</h2>
-            {% endif %}
-          {% endif %}
-        {% endblock %}
-      </hgroup>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation-toggle" aria-controls="main-navigation-toggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="fa fa-bars text-white"></span>
-      </button>
-
-      <div class="main-navbar collapse navbar-collapse" id="main-navigation-toggle">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> #}
-          {# {% block header_site_navigation %} #}
-            {% block header_site_navigation_tabs %}
-              {% set org_type = h.default_group_type('organization') %}
-              {% set group_type = h.default_group_type('group') %}
-
-		          {{ h.build_nav_main(
-		            (
-                  'home.index', _('Home')
-                ),
-                (
-                  dataset_type ~ '.search', h.humanize_entity_type('package', dataset_type, 'main nav') or _('Datasets'), ["dataset", "resource"]
-                ),
-		            (
-                  org_type ~ '.index',
-                  h.humanize_entity_type('organization', org_type, 'main nav') or _('Organizations'), ['organization']
-                ),
-		            (
-                  group_type ~ '.index',
-                  h.humanize_entity_type('group_type', group_type, 'main nav') or _('Groups'), ['group']
-                ),
-		            (
-                  'home.about', _('About')
-                ))
-              }}
-	          {% endblock %}
-          {# {% endblock %}
-        </ul> #}
-
-        {# {% block header_site_search %}
-          <form class="d-flex site-search" action="{% url_for dataset_type ~ '.search' %}" method="get">
-            <label class="d-none" for="field-sitewide-search">{% block header_site_search_label %}{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search Datasets...') }}{% endblock %}</label>
-            <input id="field-sitewide-search" class="form-control me-2"  type="text" name="q" placeholder="{{ _('Search') }}" aria-label="{{ h.humanize_entity_type('package', dataset_type, 'search_placeholder') or _('Search datasets...') }}"/>
-            <button class="btn" type="submit" aria-label="{{ _('Submit') }}"><i class="fa fa-search"></i></button>
-          </form>
-        {% endblock %}
-      </div>
-    </nav>
-  </div>
-</header>
-{% endblock %} #}
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="active" href="{{ h.url_for('home.index') }}">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+{% endblock %}

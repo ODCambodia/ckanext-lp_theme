@@ -12,3 +12,15 @@
 #   output: ckanext-lp_theme/%(version)s-lp_theme.css
 #   contents:
 #     - css/lp_theme.css
+
+animate-css:
+  filters: cssrewrite
+  output: lp_theme/%(version)s_animate.css
+  contents:
+    - animate.css/animate.min.css
+
+bootstrap-icons:
+  filters: cssrewrite
+  output: lp_theme/%(version)s_bootstrap-icons.css
+  contents:
+    - bootstrap-icons/bootstrap-icons.css
