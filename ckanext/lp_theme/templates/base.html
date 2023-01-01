@@ -1,13 +1,11 @@
 {% ckan_extends %}
 
 {% block styles %}
-  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/vendor/animate.css/animate.min.css" />
-  <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css" />
-  <link rel="stylesheet" href="/vendor/boxicons/css/boxicons.min.css" />
-  <link rel="stylesheet" href="/vendor/glightbox/css/glightbox.min.css" />
-  <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css" />
-
-  <link rel="stylesheet" href="/css/style.css" />
-
+  {% asset 'ckanext-lp_theme/bootstrap-css' %}
+  {% asset 'ckanext-lp_theme/animate-css' %}
+  {% asset 'ckanext-lp_theme/bootstrap-icons-css' %}
+  {% asset 'ckanext-lp_theme/boxicons-css' %}
+  {% asset 'ckanext-lp_theme/glightbox-css' %}
+  {% asset 'ckanext-lp_theme/swiper-css' %}
+  {% asset 'ckanext-lp_theme/lp_theme-css' %}
 {% endblock %}

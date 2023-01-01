@@ -1,26 +1,92 @@
-# lp_theme-js:
-#   filter: rjsmin
-#   output: ckanext-lp_theme/%(version)s-lp_theme.js
-#   contents:
-#     - js/lp_theme.js
-#   extra:
-#     preload:
-#       - base/main
+lp_theme-css:
+  filter: cssrewrite
+  output: ckanext-lp_theme/%(version)s-lp_theme.css
+  contents:
+    - custom-css/style.css
 
-# lp_theme-css:
-#   filter: cssrewrite
-#   output: ckanext-lp_theme/%(version)s-lp_theme.css
-#   contents:
-#     - css/lp_theme.css
+lp_theme-js:
+  filter: rjsmin
+  output: ckanext-lp_theme/%(version)s-lp_theme.js
+  contents:
+    - custom-js/main.js
+  extra:
+    preload:
+      - base/main
 
-# animate-css:
-#   filters: cssrewrite
-#   output: ckanext-lp_theme/%(version)s_animate.css
-#   contents:
-#     - animate.css/animate.min.css
+animate-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_animate.css
+  contents:
+    - vendor/animate.css/animate.min.css
+
+bootstrap-icons-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_bootstrap-icons.css
+  contents:
+    - vendor/bootstrap-icons/bootstrap-icons.css
+
+boxicons-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_boxicons.css
+  contents:
+    - vendor/boxicons/css/boxicons.min.css
+
+glightbox-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_glightbox.css
+  contents:
+    - vendor/glightbox/css/glightbox.min.css
+
+glightbox-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_glightbox.js
+  contents:
+    - vendor/glightbox/js/glightbox.min.js
+
+bootstrap-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_bootstrap.css
+  contents:
+    - vendor/bootstrap/css/bootstrap.min.css
 
 bootstrap-js:
   filters: rjsmin
   output: ckanext-lp_theme/%(version)s_bootstrap.js
   contents:
-    - vendor/bootstrap/js/bootstrap.min.js
+    - vendor/bootstrap/js/bootstrap.bundle.js
+
+swiper-css:
+  filters: cssrewrite
+  output: ckanext-lp_theme/%(version)s_swiper.css
+  contents:
+    - vendor/swiper/swiper-bundle.min.css
+
+swiper-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_swiper.js
+  contents:
+    - vendor/swiper/swiper-bundle.min.js
+
+purecounter-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_purecounter.js
+  contents:
+    - vendor/purecounter/purecounter_vanilla.js
+
+isotope-layout-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_isotope.js
+  contents:
+    - vendor/isotope-layout/isotope.pkgd.min.js
+
+php-email-form-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_php-email-form.js
+  contents:
+    - vendor/php-email-form/validate.js
+
+waypoints-js:
+  filters: rjsmin
+  output: ckanext-lp_theme/%(version)s_waypoints.js
+  contents:
+    - vendor/waypoints/noframework.waypoints.js
