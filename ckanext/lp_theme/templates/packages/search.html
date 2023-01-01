@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+{% block breadcrumb_content %}
+    <li class="active">
+        {{ h.nav_link(_(dataset_type.title() + 's'), named_route='%s.search' % dataset_type, highlight_actions = 'new index') }}
+    </li>
+{% endblock %}

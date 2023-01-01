@@ -10,3 +10,16 @@
     {% asset 'ckanext-lp_theme/php-email-form-js' %}
     {% asset 'ckanext-lp_theme/lp_theme-js' %}
 {% endblock %}
+
+{% block breadcrumb %}
+<section class="breadcrumbs" id="breadcrumbs">
+    <div class="container-fluid">
+        {% if self.breadcrumb_content() | trim %}
+            <ol>
+                {% snippet 'snippets/home_breadcrumb_item.html' %}
+                {% block breadcrumb_content %}{% endblock %}
+            </ol>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
