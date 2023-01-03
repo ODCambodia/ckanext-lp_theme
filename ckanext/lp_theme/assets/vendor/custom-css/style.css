@@ -74,6 +74,10 @@ h6 {
   font-size: 14px;
 }
 
+#topbar .navbar a {
+  color: #fefefe;
+}
+
 #topbar .contact-info i {
   font-style: normal;
   color: #e96b56;
@@ -613,9 +617,10 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0 20px 0;
-  background: #f7f7f7;
-  border-bottom: 1px solid #ededed;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  /* background: #f7f7f7; */
+  /* border-bottom: 1px solid #ededed; */
+  /* margin-bottom: 40px; */
 }
 
 .breadcrumbs h2 {
@@ -630,7 +635,7 @@ section {
   list-style: none;
   padding: 0 0 5px 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .breadcrumbs ol li+li {
@@ -2221,4 +2226,32 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+/* Style from CKAN */
+.js .js-hide {
+  display: none;
+}
+.js .js-hide.active {
+  display: block;
+}
+
+.filters {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filters .module-heading {
+  border-bottom: 2px solid #fefefe;
+  line-height: 1.8;
+}
+
+/* Overwrite Bootstrap */
+.btn-primary {
+  background-color: #e6573f;
+  border: 1px solid #fefefe
+}
+
+.btn-primary:hover {
+  background-color: #e6573f;
+  border: 1px solid #fefefe
 }
