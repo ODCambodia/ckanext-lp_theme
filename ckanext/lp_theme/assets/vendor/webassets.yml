@@ -1,3 +1,15 @@
+custom-bootstrap-css:
+  filter: cssrewrite
+  output: ckanext-lp_theme/%(version)s-custom-bootstrap.css
+  contents:
+    - custom-css/custom-bootstrap.css
+
+eterna-template-css:
+  filter: cssrewrite
+  output: ckanext-lp_theme/%(version)s-template.css
+  contents:
+    - custom-css/template.css
+
 lp_theme-css:
   filter: cssrewrite
   output: ckanext-lp_theme/%(version)s-lp_theme.css
