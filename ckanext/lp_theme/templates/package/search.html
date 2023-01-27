@@ -1,7 +1,7 @@
 {% ckan_extends %}
 
 {% block secondary_content %}
-    <div class="filters p-2">
+    <div class="filters">
         <div>
             {% for facet in facet_titles %}
                 {{ h.snippet('snippets/facet_list.html', title=facet_titles[facet], name=facet, search_facets=search_facets) }}

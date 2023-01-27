@@ -1,0 +1,10 @@
+{% set _class = _class or 'tag-list' %}
+{% block tag_list %}
+<div class="{{ _class }}">
+    {% for tag in tags %}
+    <a class="badge rounded-pill text-bg-light fw-normal fs-6 {% block tag_list_item_class %}tag{% endblock %}" href="{% url_for 'dataset.search', tags=tag.name %}">
+        <span>{{ h.truncate(tag.display_name, 22) }}</span>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
