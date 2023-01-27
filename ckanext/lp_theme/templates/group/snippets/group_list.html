@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{% block group_list %}
+<div class="clearfix"></div>
+
+<section class="groups" id="groups">
+    <div class="container">
+        <div class="row media-grid" data-module="media-grid">
+            {% block group_list_inner %}
+                {% for group in groups %}
+                    {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+</section>
+{% endblock %}
