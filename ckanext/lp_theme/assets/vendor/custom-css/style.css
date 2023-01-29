@@ -1,6 +1,7 @@
 .js .js-hide {
   display: none;
 }
+
 .js .js-hide.active {
   display: block;
 }
@@ -75,6 +76,10 @@ ul.resource-list li.resource-item {
   list-style: none;
 }
 
+.media-image {
+  max-height: 7.5rem;
+}
+
 /* Customize Style from Eterna template */
 .groups {
   margin-top: 2rem;
@@ -91,7 +96,7 @@ ul.resource-list li.resource-item {
 .groups .icon-box {
   text-align: center;
   border: 1px solid #ededed;
-  padding: 60px 20px;
+  padding: 40px 20px;
   transition: all ease-in-out 0.3s;
   width: 100%;
 }
