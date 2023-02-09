@@ -99,6 +99,10 @@
   border-color: #f5c2c7;
 }
 
+.btn {
+  margin-right: .3rem;
+}
+
 .btn-default {
   background-color: #fefefe;
   border: 1px solid #e6573f;
@@ -111,8 +115,27 @@
   color: #fefefe;
 }
 
+.btn-primary:active,
+.btn-primary:focus-visible,
+.btn-primary:focus-within,
+.btn-primary:target {
+  background-color: #e6573f;
+  border: 1px solid #fefefe;
+  color: #fefefe;
+}
+
+.btn .show {
+  background-color: #e6573f;
+  border: 1px solid #fefefe;
+  color: #fefefe;
+}
+
 .dataset-form {
   margin-bottom: 1.5rem;
+}
+
+.dropdown-menu > li {
+  margin-left: .6rem;
 }
 
 .form-group {
@@ -199,6 +222,10 @@ ul.resource-list li.resource-item {
 
 .actions {
   float: right;
+}
+
+.actions ul {
+  display: flex;
 }
 
 .actions ul li {
